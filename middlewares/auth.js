@@ -6,6 +6,7 @@ import jwt from "jsonwebtoken";
 export const isAuthenticated = catchAsyncErrors(async (req, res, next) => {
   const { token } = req.cookies;
   if (!token) {
+    console.error("No token found in cookies");
     return next(new ErrorHandler("User Not Authorized", 401));
   }
   const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
