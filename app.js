@@ -14,7 +14,7 @@ config({ path: "./config/config.env" });
 
 app.use(
   cors({
-    origin: "https://job-portal-frontend-v76k.onrender.com",
+    origin: ["https://job-portal-frontend-v76k.onrender.com"],
     method: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
   })
