@@ -14,9 +14,12 @@ config({ path: "./config/config.env" });
 
 app.use(
   cors({
-    origin: ["https://job-portal-frontend-v76k.onrender.com"],
-    method: ["GET", "POST", "DELETE", "PUT"],
+    origin: "https://job-portal-frontend-v76k.onrender.com", // Ensure this matches exactly
+    methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"], // Add any other headers you need
+    preflightContinue: false,
+    optionsSuccessStatus: 204, // For legacy browser support
   })
 );
 
